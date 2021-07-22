@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   root to: 'posts#all'
   
+  #session routes
   get '/login', to: 'sessions#new', as: :login
   post '/login', to: 'sessions#create'
   get '/profil', to:'users#edit', as: :profil
   patch '/profil', to: 'users#update'
 
+  #register routes
   get '/register', to: 'users#new', as: :register
   post '/register', to: 'users#create'
-  
 
   resources :users, only: [:new] do
     member do
