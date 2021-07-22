@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(get_params)
     if(@user.valid?)
       @user.save
-      RegisterMailer.confirm(@user).deliver_now
+      #RegisterMailer.confirm(@user).deliver_now
       redirect_to login_path, success: "Inscription effectuée avec succes. Vous recevrez un mail afin de valider votre inscription"
     else
       render 'new'
