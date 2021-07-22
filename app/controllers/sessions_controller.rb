@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     @user = User.where(username: user_params[:username] ).or(User.where(email: user_params[:email])).first
     if @user && @user.authenticate(user_params[:password])
       session[:auth] = @user.to_session
-      redirect_to profil_path
+      redirect_to root_path
     else
       flash.now[:danger] = "Identifient ou mot de passe incorrecte"
       render 'new'
