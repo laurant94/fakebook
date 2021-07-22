@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.update_attributes(online: false)
+    @post.destroy
     redirect_to posts_path
   end
 
