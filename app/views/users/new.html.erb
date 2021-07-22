@@ -29,7 +29,7 @@
 
 
 
-          <%= form_for @user, html: { multipart: true }  do |f| %>
+          <%= form_for @user,url: register_path, html: { multipart: true }  do |f| %>
             <div class="form-group">
               <%= f.text_field :username, class:'form-control', placeholder: "Nom d'utilisateur" %>
             </div>
@@ -47,7 +47,7 @@
             </div>
           <% end %>
           <div class="text-center">
-            <a href="<%= new_session_path %>" class="btn  btn-link">Se connecter</a>
+            <a href="<%= login_path %>" class="btn  btn-link">Se connecter</a>
           </div>
         </div>
       </div>

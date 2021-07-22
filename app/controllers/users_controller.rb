@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if(@user.valid?)
       @user.save
       RegisterMailer.confirm(@user).deliver_now
-      redirect_to new_user_path, success: "Inscription effectuée avec succes. Vous recevrez un mail afin de valider votre inscription"
+      redirect_to login_path, success: "Inscription effectuée avec succes. Vous recevrez un mail afin de valider votre inscription"
     else
       render 'new'
     end
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       @user.update_attributes(token: params[:token], validated: true)
       @user.save(validate: false)
       puts "activer"
-      redirect_to new_session_path
+      redirect_to register_path
     else
       render 'confirm'
     end

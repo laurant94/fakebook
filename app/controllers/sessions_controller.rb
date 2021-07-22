@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
   skip_before_action :only_login_in, only: [:new, :create]
+  def index
+  end
+
   def new
-    
   end
 
   def create
@@ -18,7 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.destroy
-    redirect_to new_session_path, success: "Deconnecter avec succes"
+    redirect_to login_path, success: "Deconnecter avec succes"
   end
 
 end
